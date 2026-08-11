@@ -53,3 +53,5 @@ Output is truncated. View as a scrollable element or open in a text editor. Adju
 **Limites éticos do conjunto (o que esse conjunto NÃO permite concluir, e quais cuidados foram tomados na coleta):**
 
 > foram tomados cuidados ao não coletar vídeos com conteúdo sensível ou fotosensível. A coleta não permite concluir qual o total de visualizações que um perfil possui.
+
+OBS: uso de IA na parte de responder a pergunta criada. (sinalizei alguns lugares que também utilizei IA dentro dos próprios notebooks - parte 2 e parte 4)
