@@ -1,4 +1,4 @@
-# [Título curto do relatório (ex.: "Engajamento por hashtag na coleta de [tema]")]
+# [Engajamento por hashtag na coleta de makeup]
 
 ## Pergunta
 
@@ -12,7 +12,7 @@
 
 **Tamanho da amostra:** 1138
 
-**Limites conhecidos da coleta:** (uma plataforma só? um recorte de hashtag só? poucos dias?)
+**Limites conhecidos da coleta:** 
 As hashtags comparadas foram extraídas em quantidades diferentes (ex: fy - 51 posts, girls - 15 posts) e rankeadas conforme engajamento médio. Isso gera uma possibilidade de enviezar o resultado visto que uma delas apresenta uma quantidade de posts muito menor, aumentando a chance de obter um post que suba muito a média do engajamento, mesmo que todos os outros posts daquela mesma hashtag tenham métricas parecidas. Resumindo, quanto menor a quantidade de posts de uma hashtag, mais chance de obter um resultado que "só está ali" por conta de uma publicação que aumentou muito o engajamento médio.
 
 
