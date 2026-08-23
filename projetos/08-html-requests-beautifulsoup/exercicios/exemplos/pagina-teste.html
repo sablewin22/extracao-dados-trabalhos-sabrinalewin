@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog de Extração e Análise de Dados</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #14212b;
+            --muted: #5a6b78;
+            --paper: #f7f4ef;
+            --card: #ffffff;
+            --line: #d7dde3;
+            --teal: #0f5c5c;
+            --teal-deep: #0a3d3d;
+            --coral: #e4572e;
+            --shadow: 0 12px 32px rgba(20, 33, 43, 0.08);
+            --radius: 18px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            color: var(--ink);
+            font-family: "Source Sans 3", system-ui, sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(15, 92, 92, 0.12), transparent 34%),
+                radial-gradient(circle at 85% 12%, rgba(228, 87, 46, 0.10), transparent 28%),
+                linear-gradient(180deg, #edf2f5 0%, var(--paper) 48%, #e7eef2 100%);
+        }
+
+        .site {
+            width: min(920px, calc(100% - 2rem));
+            margin: 0 auto;
+            padding: 1.5rem 0 3rem;
+        }
+
+        .topo {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .marca {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: var(--teal-deep);
+        }
+
+        .marca-selo {
+            width: 2.1rem;
+            height: 2.1rem;
+            border-radius: 0.7rem;
+            display: grid;
+            place-items: center;
+            color: white;
+            background: linear-gradient(145deg, var(--teal), var(--teal-deep));
+            box-shadow: 0 8px 18px rgba(15, 92, 92, 0.28);
+            font-family: Fraunces, Georgia, serif;
+            font-size: 0.95rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .nav-links a:hover {
+            color: var(--teal);
+        }
+
+        header {
+            position: relative;
+            overflow: hidden;
+            padding: 2.4rem 2rem 2.1rem;
+            border-radius: calc(var(--radius) + 4px);
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.72)),
+                linear-gradient(120deg, #0f5c5c 0%, #174f66 55%, #2b3a67 100%);
+            background-blend-mode: normal;
+            color: white;
+            box-shadow: var(--shadow);
+            margin-bottom: 1.75rem;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(120deg, rgba(15, 92, 92, 0.94), rgba(23, 79, 102, 0.9) 48%, rgba(43, 58, 103, 0.92)),
+                radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.18), transparent 40%);
+            z-index: 0;
+        }
+
+        header > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin: 0 0 0.9rem;
+            padding: 0.28rem 0.7rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        #titulo-site {
+            margin: 0;
+            max-width: 14ch;
+            font-family: Fraunces, Georgia, serif;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            line-height: 1.05;
+            font-weight: 700;
+        }
+
+        .subtitulo {
+            margin: 1rem 0 0;
+            max-width: 38rem;
+            font-size: 1.08rem;
+            line-height: 1.55;
+            color: rgba(255, 255, 255, 0.86);
+        }
+
+        .lista-posts {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .post {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 1.35rem 1.4rem 1.25rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+        }
+
+        .post:hover {
+            transform: translateY(-3px);
+            border-color: rgba(15, 92, 92, 0.28);
+            box-shadow: 0 16px 36px rgba(20, 33, 43, 0.12);
+        }
+
+        .titulo-post {
+            margin: 0 0 0.75rem;
+            font-family: Fraunces, Georgia, serif;
+            font-size: clamp(1.25rem, 2.4vw, 1.55rem);
+            line-height: 1.25;
+            font-weight: 700;
+        }
+
+        .link-post {
+            color: var(--ink);
+            text-decoration: none;
+        }
+
+        .link-post:hover {
+            color: var(--teal);
+            text-decoration: underline;
+            text-underline-offset: 0.18em;
+        }
+
+        .meta-post {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.55rem 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .autor-post,
+        .data-post {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .autor-post::before {
+            content: "";
+            display: inline-block;
+            width: 0.45rem;
+            height: 0.45rem;
+            margin-right: 0.45rem;
+            border-radius: 50%;
+            background: var(--coral);
+            vertical-align: 0.1rem;
+        }
+
+        .resumo-post {
+            margin: 0;
+            color: #334552;
+            line-height: 1.55;
+            font-size: 1rem;
+        }
+
+        footer {
+            margin-top: 2rem;
+            padding: 1.1rem 0.2rem 0;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 0.92rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 640px) {
+            .topo {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            header {
+                padding: 1.7rem 1.25rem 1.5rem;
+            }
+
+            .post {
+                padding: 1.15rem 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="site">
+        <div class="topo">
+            <div class="marca">
+                <span class="marca-selo">EA</span>
+                <span>Extração &amp; Análise</span>
+            </div>
+            <nav class="nav-links" aria-label="Seções">
+                <a href="#lista">Posts</a>
+                <a href="#rodape">Sobre</a>
+            </nav>
+        </div>
+
+        <header>
+            <p class="eyebrow">Laboratório digital</p>
+            <h1 id="titulo-site">Blog de Extração e Análise de Dados</h1>
+            <p class="subtitulo">Notas práticas sobre HTML, requisições e coleta responsável de páginas da web.</p>
+        </header>
+
+        <main>
+            <ul class="lista-posts" id="lista">
+
+                <li class="post" id="post-1">
+                    <h2 class="titulo-post"><a class="link-post" href="https://exemplo.com/posts/html-para-iniciantes">HTML para quem nunca programou</a></h2>
+                    <div class="meta-post">
+                        <p class="autor-post">Autor: Matheus Pestana</p>
+                        <p class="data-post">Publicado em: 2026-08-01</p>
+                    </div>
+                    <p class="resumo-post">Tags, atributos e a ideia de árvore, com exemplos bem simples.</p>
+                </li>
+
+                <li class="post" id="post-2">
+                    <h2 class="titulo-post"><a class="link-post" href="https://exemplo.com/posts/classe-e-id-na-pratica">Classe e id na prática</a></h2>
+                    <div class="meta-post">
+                        <p class="autor-post">Autor: Matheus Pestana</p>
+                        <p class="data-post">Publicado em: 2026-08-03</p>
+                    </div>
+                    <p class="resumo-post">Como usar tag, classe e id para achar exatamente o que você quer.</p>
+                </li>
+
+                <li class="post" id="post-3">
+                    <h2 class="titulo-post"><a class="link-post" href="https://exemplo.com/posts/requests-primeiros-passos">Primeiros passos com requests</a></h2>
+                    <div class="meta-post">
+                        <p class="autor-post">Autor: Matheus Pestana</p>
+                        <p class="data-post">Publicado em: 2026-08-05</p>
+                    </div>
+                    <p class="resumo-post">Fazendo uma requisição GET e checando o status antes de seguir.</p>
+                </li>
+
+                <li class="post" id="post-4">
+                    <h2 class="titulo-post"><a class="link-post" href="https://exemplo.com/posts/beautifulsoup-find-e-find-all">BeautifulSoup: find e find_all</a></h2>
+                    <div class="meta-post">
+                        <p class="autor-post">Autor: Matheus Pestana</p>
+                        <p class="data-post">Publicado em: 2026-08-06</p>
+                    </div>
+                    <p class="resumo-post">As duas formas principais de navegar pela árvore do HTML nesta disciplina.</p>
+                </li>
+
+                <li class="post" id="post-5">
+                    <h2 class="titulo-post"><a class="link-post" href="https://exemplo.com/posts/de-html-para-csv">De HTML para uma tabela em CSV</a></h2>
+                    <div class="meta-post">
+                        <p class="autor-post">Autor: Matheus Pestana</p>
+                        <p class="data-post">Publicado em: 2026-08-07</p>
+                    </div>
+                    <p class="resumo-post">Organizando o que foi extraído em lista de dicionários e salvando.</p>
+                </li>
+
+                <li class="post" id="post-6">
+                    <h2 class="titulo-post"><a class="link-post" href="https://exemplo.com/posts/robots-txt-e-limites">O que o robots.txt te conta antes de coletar</a></h2>
+                    <div class="meta-post">
+                        <p class="autor-post">Autor: Matheus Pestana</p>
+                        <p class="data-post">Publicado em: 2026-08-08</p>
+                    </div>
+                    <p class="resumo-post">Por que checar antes de escrever o primeiro script de coleta.</p>
+                </li>
+
+            </ul>
+        </main>
+
+        <footer id="rodape">
+            <p>Blog de Extração e Análise de Dados.</p>
+            <p>Matheus Pestana</p>
+        </footer>
+    </div>
+</body>
+</html>
