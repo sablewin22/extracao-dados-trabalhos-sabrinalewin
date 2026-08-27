@@ -166,7 +166,7 @@ with sync_playwright() as p:
     page.screenshot(path=str(pasta_dados / "screenshot-ground-russia-lista.png"))
 
     # Fecha o navegador.
-    browser.close()
+browser.close()
 
 # Caminho do CSV de saída.
 caminho_csv = pasta_dados / "ground-russia-lista.csv"
