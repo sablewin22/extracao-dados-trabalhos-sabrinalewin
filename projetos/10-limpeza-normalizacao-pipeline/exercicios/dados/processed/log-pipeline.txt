@@ -1,0 +1,11 @@
+Linhas no bruto: 28
+Linhas duplicadas removidas: 3
+Linhas após remover duplicatas: 25
+Categorias unificadas por nome equivalente (ex.: Sci-Fi -> Science Fiction): 1
+Títulos em caixa alta normalizados: 1
+Linhas descartadas por título ausente: 1
+Datas inválidas (viraram NaT): 2
+Preços ausentes ou não numéricos (mantidos como NaN, decisão documentada): 2
+Avaliações preenchidas com 0 (ausentes no bruto): 1
+Avaliações fora do intervalo 1-5 (mantidas como NaN, decisão documentada): 1
+Linhas no processado final: 24
