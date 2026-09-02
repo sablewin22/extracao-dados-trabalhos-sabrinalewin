@@ -1,0 +1,4 @@
+Linhas no bruto: 19
+Linhas duplicadas removidas: 0
+Preços tratados: 19
+Linhas no processado final: 19
