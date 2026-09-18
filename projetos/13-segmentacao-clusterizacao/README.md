@@ -1,4 +1,4 @@
-## README Lista 3
+README do case
 
 **Fonte, período e tamanho da coleta:**
 
@@ -23,7 +23,7 @@
 
 **Parte C — resultado:** quantos segmentos, como você escolheu `k`, e a descrição de cada segmento (uma frase com número).
 
-> Foram escolhidos 2 segmentos. Foi escolhido k = 2, pois foram feitos gráficos de silhueta e cotovelo, e a partir deles pode-se concluir que o maior valor de K foi o igual a 2 (0.534), mostrando que dividir em dois segmentos seria a melhor escolha a ser feita. No segmento 0, estão inseridos 616 posts, com uma média de likes de 416.3, média de comentários de 7.4, média de compartilhamentos de 38.4 e média de plays de 33482.1. Já no segmento 1, estão inseridos 522 posts, com uma média de likes de 207348.5, média de comentários de 1304.5, média de compartilhamentos de 9187.3 e média de plays de 3574317.2. Dito isso, é possível observar que o segmento 0 agrupa os posts com métricas menores, enquanto o segmento 1, agrupa posts com métricas maiores
+> Foram escolhidos 2 segmentos. Foi escolhido k = 2, pois foram feitos gráficos de silhueta e cotovelo, e a partir deles pode-se concluir que o maior valor de K foi o igual a 2 (0.534), mostrando que dividir em dois segmentos seria a melhor escolha a ser feita. Além disso, por ser uma coleta pequena, dividir ela em 2 seria mais consciente do que dividir em 3 (por mais que esse seja o melhor cotovelo), visto que os dados possuem pouca variabilidade. No segmento 0, estão inseridos 616 posts, com uma média de likes de 416.3, média de comentários de 7.4, média de compartilhamentos de 38.4 e média de plays de 33482.1. Já no segmento 1, estão inseridos 522 posts, com uma média de likes de 207348.5, média de comentários de 1304.5, média de compartilhamentos de 9187.3 e média de plays de 3574317.2. Dito isso, é possível observar que o segmento 0 agrupa os posts com métricas menores, enquanto o segmento 1, agrupa posts com métricas maiores
 
 **Uma conclusão que os seus dados sustentam** (sem extrapolar para além da sua coleta):
 
@@ -36,7 +36,7 @@
 
 **Revisão por pares:** nome do colega **da turma** que revisou, o que ele apontou, e o que você mudou (ou por que não mudou).
 
-> Escreva aqui.
+> O trabalho está perfeito. Mas é sugerível coletar uma amostra maior visto que o modelo bobo superou o R2.
 
 **Declaração de uso de IA:** 
 
