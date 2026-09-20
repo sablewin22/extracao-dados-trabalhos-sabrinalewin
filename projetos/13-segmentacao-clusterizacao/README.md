@@ -1,4 +1,4 @@
-## README Lista 3
+README do case
 
 **Fonte, período e tamanho da coleta:**
 
@@ -13,19 +13,19 @@
 > Features usadas na Parte A e B foram: 'seguidores_autor', 'videos_autor', 'tam_legenda', 'n_emojis', 'n_hashtags', 'hora', 'dia_semana'. Foram descartadas as colunas "likes", "comments", "shares" e "plays", pois elas são diretamente utilizadas para fazer o cálculo do engajamento médio (Parte A) e do rótulo de viralização (Parte B), ou seja, utilizar elas seria apenas informar as métricas exatas para calcular as respostas desejadas, isto é, não estaria sendo feita nenhuma previsão.
 
 
-**Parte A — resultado:** MAE e R² do modelo bobo, da linear e da árvore. O seu melhor modelo bateu o bobo?
+**Parte A — resultado:**
 
 > Modelo bobo:  MAE = 0.0324   R2 = -0.000 / Regressão linear:   MAE = 0.0330   R2 = -0.007 / Árvore (prof. 5):   MAE = 0.0323   R2 = -0.295. Neste caso, o melhor MAE alcançado foi o da Árvore, com uma diferença de 0.0001 (muito pequena) para o modelo bobo. Já no R2, o melhor continuou sendo o do modelo bobo, visto que o dos algoritmos testados deu um resultado negativo mais alto.
 
-**Parte B — resultado:** a matriz de confusão e uma leitura: a favor de quem o modelo erra?
+**Parte B — resultado:**
 
 > A matriz de confusão da regressão logística fica assim: VN = 211 / FN = 61 / FP = 3 / VP = 10. Ele está errando a favor dos falsos negativos, ou seja, existem 61 posts que deveriam ser classificados como virais, mas não estão sendo. Também foi analisado o resultado da árvore de decisões, que fica assim: VN = 168 / FN = 28 / FP = 46 / VP = 43. Este modelo está errando a favor dos falsos positivos, ou seja, está falando que existem posts que são virais, quando na verdade não são. É possível comparar esta diferenciação dos resultados nos modelos por meio da precisão e do recall. O recall da regressão logística estava mais baixo (0,14), isto é, selecionando poucos posts que realmente viralizaram, classificando muitos dos que eram para serem virais como não virais, e a precisão estava alta (0,77), ou seja, dos posts que ele estava selecionando como "viral", a maioria ele acertava, mas isso acontecia justamente por conta do recall baixo ao ser muito seletivo no que chamava de viral. Já na árvore de decisões, o recall está mais alto (0,61), mostrando que o modelo está selecionando mais posts como virais, porém isso afeta diretamente a precisão, que fica mais baixa (0.48), isso acontece pois ao selecionar mais posts como viras, a chance de acertar a classificação diminui, abaixando a precisão, por ser um modelo menos seletivo.
 
-**Parte C — resultado:** quantos segmentos, como você escolheu `k`, e a descrição de cada segmento (uma frase com número).
+**Parte C — resultado:** 
 
-> Foram escolhidos 2 segmentos. Foi escolhido k = 2, pois foram feitos gráficos de silhueta e cotovelo, e a partir deles pode-se concluir que o maior valor de K foi o igual a 2 (0.534), mostrando que dividir em dois segmentos seria a melhor escolha a ser feita. No segmento 0, estão inseridos 616 posts, com uma média de likes de 416.3, média de comentários de 7.4, média de compartilhamentos de 38.4 e média de plays de 33482.1. Já no segmento 1, estão inseridos 522 posts, com uma média de likes de 207348.5, média de comentários de 1304.5, média de compartilhamentos de 9187.3 e média de plays de 3574317.2. Dito isso, é possível observar que o segmento 0 agrupa os posts com métricas menores, enquanto o segmento 1, agrupa posts com métricas maiores
+> Foram escolhidos 2 segmentos. Foi escolhido k = 2, pois foram feitos gráficos de silhueta e cotovelo, e a partir deles pode-se concluir que o maior valor de K foi o igual a 2 (0.534), mostrando que dividir em dois segmentos seria a melhor escolha a ser feita. Além disso, por ser uma coleta pequena, dividir ela em 2 seria mais consciente do que dividir em 3 (por mais que esse seja o melhor cotovelo), visto que os dados possuem pouca variabilidade. No segmento 0, estão inseridos 616 posts, com uma média de likes de 416.3, média de comentários de 7.4, média de compartilhamentos de 38.4 e média de plays de 33482.1. Já no segmento 1, estão inseridos 522 posts, com uma média de likes de 207348.5, média de comentários de 1304.5, média de compartilhamentos de 9187.3 e média de plays de 3574317.2. Dito isso, é possível observar que o segmento 0 agrupa os posts com métricas menores, enquanto o segmento 1, agrupa posts com métricas maiores
 
-**Uma conclusão que os seus dados sustentam** (sem extrapolar para além da sua coleta):
+**Uma conclusão que os seus dados sustentam**
 
 > Ao utilizar as features ['seguidores_autor', 'videos_autor', 'tam_legenda', 'n_emojis', 'n_hashtags', 'hora', 'dia_semana'] e corte no percentil 75 para classificar os posts da minha coleta como virais ou não, é possível concluir que usar o modelo de regressão logística garante menos falsos positivos, ou seja, ele irá acertar mais ao classificar um post como viral (precisão alta, 0.77), porém isso tem um custo, que nesse caso seria o recall baixo (0.14), ou seja, ele tende a acertar quando classifica um post como viral, porém também deixa passar muitos posts que deveriam estar sendo classificados como virais, gerando muitos falsos negativos.
 
@@ -34,9 +34,11 @@
 > Dito isso, entende-se que cada modelo deve ser utilizado para um objetivo específico. Se o objetivo era ter certeza ao classificar um post como viral, a melhor opção é a regressão logística, pois por ser um modelo mais seletivo (recall baixo), ela tende a achar menos falsos positivos. Agora, se o objetivo era classificar a maior quantidade possível de posts virais, o ideal seria utilizar um modelo com recall mais alto, nesse caso, a árvore de decisões, que garante que mais posts virais estarão sendo classificados dessa forma, gerando menos falsos negativos. 
 
 
-**Revisão por pares:** nome do colega **da turma** que revisou, o que ele apontou, e o que você mudou (ou por que não mudou).
+**Revisão por pares:** 
 
-> Escreva aqui.
+> Revisado por: Bernardo Garcia. 
+> Revisão: O trabalho está perfeito. Mas é sugerível coletar uma amostra maior visto que o modelo bobo superou o R2.
+> Nada foi alterado. De fato, seria ideal uma coleta maior, porém queria ver como a minha coleta inicial (da Aula 7) performava com essas análises.
 
 **Declaração de uso de IA:** 
 
