@@ -29,10 +29,10 @@ from fastapi import FastAPI
 
 app = FastAPI(
     title="API da Aula 20 — lendo do Parquet",
-    description="Os endpoints leem o arquivo dados/coleta.parquet, não uma lista no código.",
+    description="Os endpoints leem o arquivo data/coleta.parquet, não uma lista no código.",
 )
 
-ARQUIVO = Path(__file__).resolve().parent.parent / "dados" / "coleta.parquet"
+ARQUIVO = Path(__file__).resolve().parent.parent / "data" / "coleta.parquet"
 
 
 def ler(colunas):
@@ -49,7 +49,7 @@ def como_registros(tabela):
 
 @app.get("/")
 def raiz():
-    return {"mensagem": "API da Aula 20 no ar, lendo de dados/coleta.parquet. Veja /docs."}
+    return {"mensagem": "API da Aula 20 no ar, lendo de data/coleta.parquet. Veja /docs."}
 
 
 @app.get("/posts")

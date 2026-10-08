@@ -44,8 +44,8 @@ import pandas as pd
 from fastapi import FastAPI
 
 app = FastAPI(
-    title="API do exercício",  # TODO: troque por um título seu
-    description="Troque esta descrição pelo que a sua coleta contém.",  # TODO
+    title="API do exercício - Minha Coleta",  # TODO: troque por um título seu
+    description="Os endpoints da API para consulta dos dados coletados.",  # TODO
 )
 
 # caminho do Parquet criado na Parte 3B do notebook (pasta dados/ ao lado deste arquivo)
@@ -73,7 +73,8 @@ def raiz():
 def listar_registros(limite: int = 10):
     # TODO: devolva as primeiras `limite` linhas da sua coleta.
     # Modelo: registros = ler(); return como_registros(registros.head(limite))
-    ...
+    posts = ler(["id", "author", "timestamp", "plays", "likes"])
+    return como_registros(posts.head(limite))
 
 
 @app.get("/resumo")
@@ -81,4 +82,13 @@ def resumo():
     # TODO: devolva uma contagem por grupo, com groupby, sobre a sua coleta.
     # Escolha a coluna de agrupamento que faça sentido para a sua coleta.
     # Modelo: o endpoint /autores de exemplos/api_dados.py.
-    ...
+    posts = ler(["author", "plays"])
+    por_autor = (
+        posts.groupby("author")
+        .agg(n_posts=("plays", "size"), media_plays=("plays", "mean"))
+        .round()
+        .sort_values("n_posts", ascending=False)
+        .reset_index()
+        .rename(columns={"author": "autor"})
+    )
+    return como_registros(por_autor)
